@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A log of explorations in HPC, AI and system optimization by Vimalraj V">
+    <title>Vimalraj V | HPC, AI & Industrial Frontier</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--primary-color);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .interest-tag {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vimalraj V</h1>
+            <p>A log of my explorations in HPC, AI and system optimization</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about" aria-label="About section">About</a></li>
+            <li><a href="#hpc" aria-label="High-Performance Computing section">HPC</a></li>
+            <li><a href="#ai" aria-label="Artificial Intelligence section">AI</a></li>
+            <li><a href="#industrial" aria-label="Industrial Frontier section">Industrial Frontier</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to my personal space where I document and share my journey through the fascinating worlds of High-Performance Computing, Artificial Intelligence, and cutting-edge industrial technologies.</p>
+                    <p>This site serves as a knowledge repository where I explore complex systems, optimization techniques, and the intersection of theory and practice in modern computing.</p>
+                    <div class="interests">
+                        <span class="interest-tag">Parallel Computing</span>
+                        <span class="interest-tag">Machine Learning</span>
+                        <span class="interest-tag">System Design</span>
+                        <span class="interest-tag">Performance Tuning</span>
+                        <span class="interest-tag">Distributed Systems</span>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="card">
+                        <h3 aria-label="Mission"><span aria-hidden="true">🎯</span> Mission</h3>
+                        <p>To bridge the gap between theoretical knowledge and practical implementation in high-performance systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hpc">
+            <h2>High-Performance Computing</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Parallel Programming</h3>
+                    <p>Exploring MPI, OpenMP, and CUDA for efficient parallel computation across multi-core and GPU architectures.</p>
+                    <span class="tag">Computing</span>
+                </div>
+                <div class="card">
+                    <h3>Performance Optimization</h3>
+                    <p>Techniques for profiling, benchmarking, and optimizing computational workloads for maximum efficiency.</p>
+                    <span class="tag">Optimization</span>
+                </div>
+                <div class="card">
+                    <h3>Cluster Architecture</h3>
+                    <p>Understanding the design and management of computing clusters and distributed systems.</p>
+                    <span class="tag">Architecture</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai">
+            <h2>Artificial Intelligence</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Deep Learning</h3>
+                    <p>Neural network architectures, training strategies, and deployment considerations for production systems.</p>
+                    <span class="tag">ML/DL</span>
+                </div>
+                <div class="card">
+                    <h3>Large Language Models</h3>
+                    <p>Understanding transformer architectures, fine-tuning techniques, and efficient inference methods.</p>
+                    <span class="tag">NLP</span>
+                </div>
+                <div class="card">
+                    <h3>MLOps</h3>
+                    <p>Best practices for deploying, monitoring, and maintaining machine learning systems at scale.</p>
+                    <span class="tag">Operations</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="industrial">
+            <h2>Industrial Frontier</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Edge Computing</h3>
+                    <p>Bringing computation closer to data sources for real-time processing in industrial applications.</p>
+                    <span class="tag">Edge</span>
+                </div>
+                <div class="card">
+                    <h3>Digital Twins</h3>
+                    <p>Creating virtual representations of physical systems for simulation, analysis, and optimization.</p>
+                    <span class="tag">Simulation</span>
+                </div>
+                <div class="card">
+                    <h3>Industrial IoT</h3>
+                    <p>Connecting sensors, devices, and systems for intelligent manufacturing and process control.</p>
+                    <span class="tag">IoT</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vimalraj V. Built with passion for learning.</p>
+        <p>Hosted on <a href="https://github.com/vimalrajv/vimalrajv.github.io">GitHub Pages</a></p>
+    </footer>
+</body>
+</html>
