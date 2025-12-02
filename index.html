@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A log of explorations in HPC, AI and system optimization by Vimalraj V">
-    <title>HPC, AI & Industrial Frontier</title>
+    <meta name="description" content="Vimalraj V - Principal Technical Program Manager specializing in HPC, AI Infrastructure, Semiconductors, and Industrial Solutions">
+    <meta name="author" content="Vimalraj V">
+    <meta property="og:title" content="Vimalraj V | HPC & AI Infrastructure">
+    <meta property="og:description" content="Technical leadership in High-Performance Computing, AI/ML systems, and Industrial AI solutions">
+    <meta property="og:type" content="website">
+    <title>Vimalraj V | HPC & AI Infrastructure</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --text-light: #6b7280;
-            --bg-color: #ffffff;
-            --card-bg: #f9fafb;
-            --border-color: #e5e7eb;
+            --primary-color: #0066cc;
+            --secondary-color: #004d99;
+            --accent-color: #ff6b35;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6a6a6a;
+            --bg-main: #ffffff;
+            --bg-alt: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-light: #e0e0e0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
         }
 
         * {
@@ -23,306 +33,688 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-main);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header */
+        /* Header & Hero */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             color: white;
-            padding: 80px 20px;
-            text-align: center;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,128C672,107,768,85,864,90.7C960,96,1056,128,1152,133.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
             font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
-        header p {
-            font-size: 1.2rem;
+        .hero .tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 16px;
+        }
+
+        .hero .role {
+            font-size: 1.1rem;
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 12px;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            opacity: 0.85;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .hero-links {
+            margin-top: 24px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .hero-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .hero-links a:hover {
+            background-color: rgba(255,255,255,0.15);
+            border-color: white;
         }
 
         /* Navigation */
         nav {
-            background-color: var(--bg-color);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-main);
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 24px;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px 0;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
         }
 
         nav a {
+            color: var(--text-medium);
             text-decoration: none;
-            color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
         }
 
-        nav a:hover,
-        nav a:focus {
+        nav a:hover {
             color: var(--primary-color);
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
+            border-bottom-color: var(--primary-color);
         }
 
         /* Main Content */
         main {
-            padding: 60px 20px;
+            padding: 60px 0;
+            background-color: var(--bg-alt);
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         section h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
         }
 
-        /* Cards Grid */
-        .cards {
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        section .section-intro {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+            margin-top: 24px;
+            max-width: 900px;
+            line-height: 1.8;
+        }
+
+        /* Expertise Areas */
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 32px;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+        .expertise-card {
+            background: var(--bg-card);
+            padding: 32px;
             border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .expertise-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
         }
 
-        .card h3 {
+        .expertise-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .expertise-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
         }
 
-        .card p {
+        .expertise-card p {
             color: var(--text-light);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        .card .tag {
+        .expertise-card ul {
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+
+        .expertise-card ul li {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .featured-article:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-header {
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .article-header .badge {
             display: inline-block;
+            background-color: rgba(255,255,255,0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .article-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-header .meta {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .article-content {
+            padding: 40px;
+        }
+
+        .article-content .excerpt {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .article-content .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .article-content .read-more:hover {
             background-color: var(--primary-color);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 15px;
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+        /* Article Page Styles */
+        .article-full {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 60px;
+            box-shadow: var(--shadow-md);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .about-text p {
-            margin-bottom: 15px;
+        .article-full h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .article-full .article-meta {
             color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .interests {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+        .article-full h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 40px;
+            margin-bottom: 16px;
         }
 
-        .interest-tag {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
+        .article-full h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .article-full p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+
+        .article-full a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .article-full a:hover {
+            opacity: 0.8;
+        }
+
+        .article-full img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 8px;
+            margin: 24px auto;
+            box-shadow: var(--shadow-md);
+            display: block;
+        }
+
+        .article-full .article-image {
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 32px;
+            padding: 8px 0;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
         }
 
         /* Footer */
         footer {
-            background-color: var(--text-color);
+            background-color: var(--text-dark);
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            padding: 60px 0 40px;
         }
 
-        footer p {
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-about p {
             opacity: 0.8;
+            line-height: 1.7;
         }
 
-        footer a {
-            color: var(--primary-color);
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            header p {
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero .role {
                 font-size: 1rem;
+            }
+
+            .hero-links {
+                flex-direction: column;
+                align-items: center;
             }
 
             nav ul {
                 flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
+                gap: 16px;
+                justify-content: center;
             }
 
             section h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-header {
+                padding: 24px;
+            }
+
+            .article-header h3 {
+                font-size: 1.4rem;
+            }
+
+            .article-content {
+                padding: 24px;
+            }
+
+            .article-full {
+                padding: 32px 24px;
+            }
+
+            .article-full h1 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* Hidden class for showing/hiding content */
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container hero">
             <h1>Vimalraj V</h1>
-            <p>A log of my explorations in HPC, AI and system optimization</p>
+
+            <p class="subtitle">Human first. Curious mind next. I think deeply about HPC, AI Infrastructure, and Semiconductors and the world of sports - especially cricket, badminton and fitness. I draw daily inspiration from sports psychology as I work toward becoming a better version of myself.</p>
+            <div class="hero-links">
+                <a href="https://www.linkedin.com/in/vimalrajv" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/vimalrajv" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
         </div>
     </header>
 
     <nav>
-        <ul>
-            <li><a href="#about" aria-label="About section">About</a></li>
-            <li><a href="#hpc" aria-label="High-Performance Computing section">HPC</a></li>
-            <li><a href="#ai" aria-label="Artificial Intelligence section">AI</a></li>
-            <li><a href="#industrial" aria-label="Industrial Frontier section">Industrial Frontier</a></li>
-        </ul>
+        <div class="container">
+            <ul>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#featured">Featured Work</a></li>
+                <li><a href="#" onclick="showArticle(); return false;">Full Article</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main class="container">
-        <section id="about">
-            <h2>About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome to my personal space where I document and share my journey through the fascinating worlds of High-Performance Computing, Artificial Intelligence, and cutting-edge industrial technologies.</p>
-                    <p>This site serves as a knowledge repository where I explore complex systems, optimization techniques, and the intersection of theory and practice in modern computing.</p>
-                    <div class="interests">
-                        <span class="interest-tag">Parallel Computing</span>
-                        <span class="interest-tag">Machine Learning</span>
-                        <span class="interest-tag">System Design</span>
-                        <span class="interest-tag">Performance Tuning</span>
-                        <span class="interest-tag">Distributed Systems</span>
+        <div id="homepage">
+            <section id="expertise">
+                <h2>I think about.. </h2>
+                <!-- <p class="section-intro">
+                    Four domains where I'm deeply passionate about learning, discovery, and sharing insights—from high-performance computing to industrial AI applications.
+                </p> -->
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <span class="icon">⚡</span>
+                        <h3>High-Performance Computing</h3>
+                        <p>Optimizing exascale HPC and large-scale AI workloads by orchestrating RDMA communication, advanced memory management, efficient data movement, and parallelism methodologies — pushing supercomputers to their true performance limits.</p>
+                    </div>
+
+                    <div class="expertise-card">
+                        <span class="icon">🤖</span>
+                        <h3>AI Infrastructure & LLMs</h3>
+                        <p>Scaling AI infrastructure, the engineering that builds, optimizes, and pushes these systems to their limits. How to sustainably scale AI Infrastructure.</p>
+                    </div>
+
+                    <div class="expertise-card">
+                        <span class="icon">💎</span>
+                        <h3>Semiconductors & Industrial Frontier</h3>
+                        <p>The full stack — from EDA and design methodologies to lithography, advanced manufacturing, and fab operations. How materials, equipment, process technologies, and global supply-chain dynamics intersect to shape the next generation of chips.</p>
+                    </div>
+
+                    <div class="expertise-card">
+                        <span class="icon">🏃</span>
+                        <h3>Sports Psychology</h3>
+                        <p>The mental frameworks that drive peak performance in athletics and how they translate to personal and professional excellence. The intersection of mindset, resilience, and sustained high performance.</p>                        
                     </div>
                 </div>
-                <div class="about-visual">
-                    <div class="card">
-                        <h3 aria-label="Mission"><span aria-hidden="true">🎯</span> Mission</h3>
-                        <p>To bridge the gap between theoretical knowledge and practical implementation in high-performance systems.</p>
+            </section>
+
+            <section id="featured">
+                <h2>Featured Work</h2>
+                <p class="section-intro">
+                    Exploring the intersection of HPC and AI through practical insights and technical analysis.
+                </p>
+                <div class="featured-article">
+                    <div class="article-header">
+                        <span class="badge">#HPC #LLM #AI #MachineLearning #DistributedComputing</span>
+                        <h3>The Unspoken Parallels: Why LLM Pre-training and HPC Simulations Speak the Same Language</h3>
+                        <p class="meta">An exploration of how LLM training is fundamentally HPC evolution</p>
+                    </div>
+                    <div class="article-content">
+                        <p class="excerpt">
+                            Moving from Oil & Gas simulations into AI infrastructure revealed something striking: the problems we're solving to make LLMs train faster aren't new. They're the same challenges HPC engineers have wrestled with for decades—communication bottlenecks, memory hierarchies, numerical stability—just with different terminology.
+                        </p>
+                        <p class="excerpt">
+                            "Data parallelism" in ML? We've been doing this with MPI since the 1990s. "Gradient checkpointing"? That's checkpoint/restart from HPC. "Ring-AllReduce"? Literally in MPI textbooks from 20 years ago. This article explores why recognizing these parallels matters and what the ML community can learn from 40 years of HPC research.
+                        </p>
+                        <a href="#" onclick="showArticle(); return false;" class="read-more">Read Full Article →</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section id="hpc">
-            <h2>High-Performance Computing</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Parallel Programming</h3>
-                    <p>Exploring MPI, OpenMP, and CUDA for efficient parallel computation across multi-core and GPU architectures.</p>
-                    <span class="tag">Computing</span>
+        <div id="article-page" class="hidden">
+            <a href="#" onclick="showHomepage(); return false;" class="back-link">← Back to Home</a>
+            <article class="article-full">
+                <h1>The Unspoken Parallels: Why LLM Pre-training and HPC Simulations Speak the Same Language</h1>
+                <div class="article-meta">
+                    By Vimalraj V | #HPC #LLM #AI #MachineLearning #DistributedComputing
                 </div>
-                <div class="card">
-                    <h3>Performance Optimization</h3>
-                    <p>Techniques for profiling, benchmarking, and optimizing computational workloads for maximum efficiency.</p>
-                    <span class="tag">Optimization</span>
-                </div>
-                <div class="card">
-                    <h3>Cluster Architecture</h3>
-                    <p>Understanding the design and management of computing clusters and distributed systems.</p>
-                    <span class="tag">Architecture</span>
-                </div>
-            </div>
-        </section>
 
-        <section id="ai">
-            <h2>Artificial Intelligence</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Deep Learning</h3>
-                    <p>Neural network architectures, training strategies, and deployment considerations for production systems.</p>
-                    <span class="tag">ML/DL</span>
-                </div>
-                <div class="card">
-                    <h3>Large Language Models</h3>
-                    <p>Understanding transformer architectures, fine-tuning techniques, and efficient inference methods.</p>
-                    <span class="tag">NLP</span>
-                </div>
-                <div class="card">
-                    <h3>MLOps</h3>
-                    <p>Best practices for deploying, monitoring, and maintaining machine learning systems at scale.</p>
-                    <span class="tag">Operations</span>
-                </div>
-            </div>
-        </section>
+                <p>I have hopped across various HPC industries, from Oil and Gas to Automotive to Engineering Simulations, and today I am deep into the world of scaling and AI. As I made this transition, I kept running into a sense of déjà vu. Not the mystical kind, but the deeply technical kind. The challenges we tackle to speed up LLM training, the inefficiencies we are battling, and the architectural choices hailed as breakthroughs are not really new. They are the same problems HPC engineers have been wrestling with for decades, just under new names and on shinier hardware.</p>
 
-        <section id="industrial">
-            <h2>Industrial Frontier</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Edge Computing</h3>
-                    <p>Bringing computation closer to data sources for real-time processing in industrial applications.</p>
-                    <span class="tag">Edge</span>
+                <p>The more I thought about it, the more it became clear that LLM pre-training isn't some radical departure from HPC. It's actually HPC evolution wearing a transformer hat. And honestly? We need to talk about the terminology.</p>
+
+                <div class="article-image">
+                    <img src="HPC_AI_IMG.png" alt="Illustration showing the parallel between traditional HPC methods and modern AI approaches" />
                 </div>
-                <div class="card">
-                    <h3>Digital Twins</h3>
-                    <p>Creating virtual representations of physical systems for simulation, analysis, and optimization.</p>
-                    <span class="tag">Simulation</span>
-                </div>
-                <div class="card">
-                    <h3>Industrial IoT</h3>
-                    <p>Connecting sensors, devices, and systems for intelligent manufacturing and process control.</p>
-                    <span class="tag">IoT</span>
-                </div>
-            </div>
-        </section>
+
+                <h3>When Terms Feel Like Old Friends</h3>
+
+                <p>In the AI community, there is a tendency to reframe concepts that have long been established in HPC, sometimes presenting them as new innovations.</p>
+
+                <p>"Data parallelism", splitting data into batches across GPUs for that sweet speedup. Straight out of the MPI playbook, where we'd decompose domains and sync boundaries. That's been standard practice in CFD simulations since the 1990s.</p>
+
+                <p>"Tensor parallelism", slicing those giant weight matrices. That's what we did when we partitioned finite element (FEM) stiffness matrices across compute nodes in structural mechanics codes. Same principle, different application.</p>
+
+                <p>"Pipeline parallelism",  HPC has been pipelining computational stages across nodes for decades. For example, staged execution from CFD workflows. The specific implementation for transformers is new, but the concept of breaking sequential work into stages and overlapping execution across different processors is foundational HPC.</p>
+
+                <p>"Gradient checkpointing" (or "activation checkpointing"),  store less, recompute more during backprop. That's checkpoint/restart in HPC, and we've been doing it since tape drives. There are also mathematical frameworks for deciding optimal checkpoint frequency.</p>
+
+                <p>"Gradient accumulation", faking big batches with small ones mirrors CFD domain decomp with lazy syncs. We've been doing this in parallel PDE solvers forever.</p>
+
+                <p>"Mixed precision training", HPC numerical analysts have been managing precision hierarchies (float64/float32/float16) for numerical stability since GPUs were invented. The specific application to neural networks is new, but the principle of "use lower precision where you can, higher precision where you must" is classic numerical computing.</p>
+
+                <p>The list goes on. AllReduce, Standard MPI collective operation since 1994. Ring-AllReduce, We've been using ring topologies for collective communication in HPC clusters for years. </p>
+                
+                <p>"Flash Attention's tiling and kernel fusion", That's cache-aware algorithm design and operation fusion—core HPC optimization techniques from the early 2000s.</p>
+
+                <p>I'm not saying the ML implementations aren't sophisticated or valuable. They absolutely are. But when I hear someone describe ZeRO optimizer as revolutionary, I think: "We've been partitioning optimizer state and doing state sharding in parallel solvers for decades." The specific application to transformer training is new, but the underlying memory optimization strategy is not.</p>
+
+                <h3>The Fundamental Problem: Both Are Solving the Same Equation</h3>
+
+                <p>Whether you're simulating fluid dynamics around a wind turbine or training an LLM with 70 billion parameters, you're facing the same core constraint: the compute-to-communication ratio is broken. Your GPUs (or CPUs) can perform billions of floating-point operations per second, but moving data around the system? That's the real bottleneck.</p>
+
+                <p>In HPC, we've known this for years. The Floating Point Rate divided by Memory Bandwidth is what we call the "balance ratio," and it's been steadily worsening as GPUs get faster but interconnects don't. A modern GPU might have enough arithmetic throughput to solve a problem, but if it spends most of its time waiting for data to arrive from memory or from neighboring nodes, you're just spinning your wheels. Your 80% of peak performance becomes 20% of peak performance.</p>
+
+                <p>LLM training faces exactly the same physics. When you're training a transformer, you're not just doing computation—you're constantly shuffling massive tensors around. During the prefill phase (when you process the entire input sequence), you're doing matrix-matrix multiplications, which is compute-bound and loves parallelism. During the decode phase (generating tokens one at a time), you're doing matrix-vector multiplications, which are memory-bound and make the GPU sit idle, watching bandwidth.</p>
+
+                <p>The solutions claimed cutting-edge in ML—fused kernels, overlapping computation with communication, mixed precision arithmetic—are the exact playbook HPC has been running for 15 years.</p>
+
+                <h5>The Shared Enemy: The Communication-to-Compute Bottleneck</h5>
+
+                <p>Both HPC and LLM training are fundamentally limited by the same physics: data motion is expensive, and it's getting more expensive relative to computation.</p>
+
+                <p>In fluid dynamics simulations running on Cray supercomputers, the bottleneck is often interconnect bandwidth between nodes. In LLM training on GPU clusters, the bottleneck is often NVLink bandwidth between GPUs or network bandwidth between nodes. The specific hardware is different, but the fundamental constraint is identical.</p>
+
+                <p>This is why both domains obsess over the same metrics:</p>
+
+                <p><strong>Memory bandwidth efficiency:</strong> Can you saturate the available bandwidth, or are you leaving performance on the table?</p>
+
+                <p><strong>Communication volume:</strong> Can you reduce the amount of data you're moving?</p>
+
+                <p><strong>Synchronization overhead:</strong> Are workers waiting for each other unnecessarily?</p>
+
+                <p>The HPC community solved similar problems by being ruthlessly pragmatic.</p>
+
+                <p>We've been doing this for years.</p>
+                
+            </article>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Vimalraj V. Built with passion for learning.</p>
-        <p>Hosted on <a href="https://github.com/vimalrajv/vimalrajv.github.io">GitHub Pages</a></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Vimalraj V</h3>
+                    <p>A Program Manager specializing in High-Performance Computing, AI Infrastructure, Semiconductors, and Industrial Solutions. Passionate about advancing innovation through next-generation cloud platforms and responsible AI deployment.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/vimalrajv" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://github.com/vimalrajv" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Expertise</h4>
+                    <ul>
+                        <li><a href="#expertise">HPC & AI</a></li>
+                        <li><a href="#expertise">Semiconductors</a></li>
+                        <li><a href="#expertise">Industrial Solutions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vimalraj V. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        function showArticle() {
+            document.getElementById('homepage').classList.add('hidden');
+            document.getElementById('article-page').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showHomepage() {
+            document.getElementById('article-page').classList.add('hidden');
+            document.getElementById('homepage').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
