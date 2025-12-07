@@ -541,7 +541,6 @@
             <ul>
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#featured">Featured Work</a></li>
-                <li><a href="#" onclick="showArticle(); return false;">Full Article</a></li>
             </ul>
         </div>
     </nav>
@@ -598,13 +597,30 @@
                         <p class="excerpt">
                             "Data parallelism" in ML? We've been doing this with MPI since the 1990s. "Gradient checkpointing"? That's checkpoint/restart from HPC. "Ring-AllReduce"? Literally in MPI textbooks from 20 years ago. This article explores why recognizing these parallels matters and what the ML community can learn from 40 years of HPC research.
                         </p>
-                        <a href="#" onclick="showArticle(); return false;" class="read-more">Read Full Article →</a>
+                        <a href="#" onclick="showArticle('hpc-article'); return false;" class="read-more">Read Full Article →</a>
+                    </div>
+                </div>
+
+                <div class="featured-article" style="margin-top: 32px;">
+                    <div class="article-header">
+                        <span class="badge">#Cricket #AI #Sports #Commentary #Technology</span>
+                        <h3>From "Finishes off in style" to AI tone: How AI failed in a failing test match</h3>
+                        <p class="meta">Why cricket commentary is culture and connection</p>
+                    </div>
+                    <div class="article-content">
+                        <p class="excerpt">
+                            Watching South Africa whitewash India was painful enough. But listening to the AI-generated day's recap felt like a different kind of problem, one that made me reconsider what cricket commentary actually means to those of us who watch the game.
+                        </p>
+                        <p class="excerpt">
+                            Great commentary doesn't just narrate cricket; it consecrates it, turning moments into memories. When AI presented the day as a sequence of events, it missed what makes cricket meaningful: the emotional and cultural glue that connects us to the sport.
+                        </p>
+                        <a href="#" onclick="showArticle('cricket-article'); return false;" class="read-more">Read Full Article →</a>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div id="article-page" class="hidden">
+        <div id="hpc-article" class="hidden">
             <a href="#" onclick="showHomepage(); return false;" class="back-link">← Back to Home</a>
             <article class="article-full">
                 <h1>The Unspoken Parallels: Why LLM Pre-training and HPC Simulations Speak the Same Language</h1>
@@ -672,6 +688,61 @@
                 
             </article>
         </div>
+
+        <div id="cricket-article" class="hidden">
+            <a href="#" onclick="showHomepage(); return false;" class="back-link">← Back to Home</a>
+            <article class="article-full">
+                <h1>From "Finishes off in style" to AI tone: How AI failed in a failing test match</h1>
+                <div class="article-meta">
+                    By Vimalraj V | #Cricket #AI #Sports #Commentary #Technology
+                </div>
+
+                <p>I was watching India's cricket against South Africa, a terrible watch, really. South Africa whitewashed a hapless Indian cricket team, the kind of performance that leaves you deflated. But beyond the poor batting and bowling, something else struck me as deeply odd: listening to the test match day's recap narrated by AI. While the match itself felt like a disaster, the AI commentary felt like a different kind of problem entirely, one that made me reconsider what cricket commentary actually means to those of us who watch the game.</p>
+
+                <h3>The Sound of the Game: More Than Words</h3>
+
+                <p>Cricket commentary isn't just play-by-play description. It's the emotional and cultural glue that connects us to the sport. A great commentator doesn't narrate cricket; they consecrate it, turning moments into memories that last lifetimes.</p>
+
+                <p>These iconic lines "Dhoni finishes off in style", "By the barest of margins", "Remember the name" are not merely clever descriptions; they are emotional anchors. The true measure of great cricket commentary lies not in the words, but in the memory they engrave. The narration doesn't just describe the play; it provides the sonic memory. Every replay triggers that same electric rush, pulling the listener back into the original, timeless glory.</p>
+
+                <h3>The Prosody Plunge, Where AI lines kill the Drama</h3>
+
+                <p>When I listened to that AI-generated test match day summary, everything was technically competent. The statistics were accurate. The structure was logical. The narration was clear. And yet, something deeply uncomfortable nagged at me.</p>
+
+                <p>The AI presented the day as a sequence: this happened, then that happened, here are the numbers. But a test cricket day isn't a list of events, it's a three-session narrative arc with psychological depth, momentum shifts, the ebbs and flows that unfolds across multiple dimensions. The AI treated it like a data report, not a story. What made me grimace and reach for the remote wasn't just the lack of emotion, it was that the AI was speaking about cricket without actually understanding what cricket is.</p>
+
+                <p>The real problem was that I expected to hear a human voice bringing meaning to the chaos. Instead, I got information presented as narration. Information tells you what happened; narration explains why it matters. AI was doing one; I needed the other.</p>
+
+                <h3>The Prosody Problem</h3>
+
+                <p>When a human commentator says "That's a brilliant delivery," the intonation carries real meaning, the same words with rising inflection scream appreciation and admiration, while falling tones drip with resignation as the batsman gets beaten. That emotional architecture flows naturally from genuine understanding of the moment.</p>
+
+                <p>AI text-to-speech can't touch this. Modern systems shatter language into phonemes with zero semantic depth, pronouncing "brilliant" perfectly but clueless whether the delivery deserves excitement, regret, or nothing. They fake it through pattern-matching, spotting "brilliant" in hyped contexts and cranking up the animation, but it's just algorithmic simulation, not emotion born from comprehension.</p>
+
+                <p>That's exactly what I heard: applied, staged, mechanical feeling that hit my ear instantly. There's a world of difference between a voice that believes what it's saying and one running statistical probabilities.</p>
+
+                <h3>The Future of Expressive AI</h3>
+
+                <p>I don't think AI will replace human commentary, but I do believe the technology will create entirely new ways for audiences to experience cricket. The question isn't whether AI will become as good as Ravi Shastri, it's what new possibilities emerge when AI and human expertise combine.</p>
+
+                <h5>Positive Benchmarks: Football as the Testing Ground</h5>
+
+                <p>Research into AI sports commentary is advancing rapidly, and football is showing us the future. The SportR benchmark demonstrates that state-of-the-art AI systems achieve approximately 71% accuracy on complex sports reasoning tasks. While that might seem modest, it's actually quite good when you consider the difficulty: these systems are learning to understand tactical formations, rule interpretations, and strategic implications and not just describing what's on screen.</p>
+
+                <p>IBM's ProsodyLM has shown that adding fine-grained controls for pitch, cadence, emphasis, and pauses can dramatically elevate the naturalness and emotional realism of long-form generated speech, especially for expressive domains like sports commentary. Their research revealed that today's LLM-to-speech systems don't actually lack language, they lack rhythmic contour and vocal dynamics, which is why synthetic commentary often sounds flat. Going forward, ProsodyLM aims to enable real-time prosody-conditioned generation so AI voices can dynamically adjust excitement, tension, and narrative flow, a crucial step toward truly human-like live sports narration.</p>
+
+                
+                <h3>Last Thought</h3>
+
+                <p>That feeling I had listening to the AI summary wasn't frustration with incomplete technology. It was accurate perception of what was being delivered: information presented as narration, data organized as storytelling, voice without presence.</p>
+
+                <p>Sports commentary will remain fundamentally human for culturally significant matches because commentary is culture and connection. That voice needs to be real.</p>
+
+                <p>But AI won't disappear. It's AI and humans figuring out how to work together in ways that expand the game, not diminish what makes it meaningful. The future of cricket commentary isn't AI becoming human. It's AI handling what doesn't require being human.</p>
+
+                <p>Until then to the broadcasters making me watch to AI commentary, here's Nasser's legendary comment to a specy in 2019, "You cannot do that Ben Stokes" IYKYK</p>
+            </article>
+        </div>
     </main>
 
     <footer>
@@ -704,14 +775,17 @@
     </footer>
 
     <script>
-        function showArticle() {
+        function showArticle(articleId) {
             document.getElementById('homepage').classList.add('hidden');
-            document.getElementById('article-page').classList.remove('hidden');
+            document.getElementById('hpc-article').classList.add('hidden');
+            document.getElementById('cricket-article').classList.add('hidden');
+            document.getElementById(articleId).classList.remove('hidden');
             window.scrollTo(0, 0);
         }
 
         function showHomepage() {
-            document.getElementById('article-page').classList.add('hidden');
+            document.getElementById('hpc-article').classList.add('hidden');
+            document.getElementById('cricket-article').classList.add('hidden');
             document.getElementById('homepage').classList.remove('hidden');
             window.scrollTo(0, 0);
         }
